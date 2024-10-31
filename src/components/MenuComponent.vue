@@ -5,10 +5,13 @@
                 <router-link to="/">Home</router-link> | 
             </li>
             <li>
+                <router-link to="/personajes">Personajes</router-link> | 
+            </li>            
+            <li>
                 <router-link to="/numerodoble">Número doble SIN</router-link> | 
             </li>
-            <li>
-                <router-link to="/numerodoble/77">Doble 77</router-link> | 
+            <li v-for="num in numeros" :key="num">
+                <router-link :to="'/numerodoble/' + num">Doble {{num}}</router-link> | 
             </li>
             <li>
                 <router-link to="/deportes/14">Deportes</router-link>
@@ -19,7 +22,12 @@
 
 <script>
     export default {
-        name: "MenuComponent"
+        name: "MenuComponent",
+        data() {
+            return {
+                numeros: [55,66,77,88]
+            }
+        }
     }
 </script>
 <style>
